@@ -1,0 +1,27 @@
+server:
+  port: 5000
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+#          clone-on-start: true
+          uri: ${user.dir}\config-server\src\main\resources\configs
+#          启用配置加解密
+        encrypt:
+          enabled: true
+  security:
+    user:
+      name: erbao
+      password: 123456
+#          force-pull: true
+#          username:
+#          password:
+#          uri: https://github.com/....git
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: eureka-peer
+  cloud:
+    config:
+#      对应配置文件中的名字
+      name: eurekaserver
+      uri: http://localhost:5000
+      username: erbao
+      password: 123456
+  profiles:
+#    配置文件中对应的环境。即 配置文件名-环境
+    active: dev
