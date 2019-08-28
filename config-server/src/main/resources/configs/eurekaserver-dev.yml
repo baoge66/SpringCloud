@@ -1,0 +1,27 @@
+spring:
+  application:
+    #   当前服务名
+    name: eureka-peer
+server:
+  #  端口号
+  port: 10003
+eureka:
+  instance:
+    hostname: dev
+  # 客户端配置
+  client:
+    #    不检索服务，因为本身自己是注册中心，这一般是调用方的事
+    fetch-registry: false
+    #    是否把自己注册到注册中心
+    register-with-eureka: false
+    #    客户端默认去这个地址找注册中心
+    service-url:
+      defaultZone: http://localhost:10000/eureka,http://localhost:10001/eureka,http://localhost:10002/eureka
+  #  服务端配置
+  server:
+    #    当eureka启动时，不能从集群节点中获取到instance注册信息，应该等待多久
+    wait-time-in-ms-when-sync-empty: 0
+    #    自我保护机制是否打开
+    enable-self-preservation: true
+    #    eureka 多长时间更新一次数据
+    peer-eureka-status-refresh-time-interval-ms: 100000
